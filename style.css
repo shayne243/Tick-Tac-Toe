@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+body {
+    font-family: Heebo;
+    background-image: url(./images/back.jpg);
+}
+#intro {
+    background: linear-gradient(180deg, rgba(113,169,179,1) 7%, rgba(179,164,164,1) 32%, rgba(113,169,179,1) 53%);
+    border: solid 10px;
+    text-align: center;
+    width: 500px;
+    margin: 20px auto;
+}
+#player-form {
+    background: linear-gradient(180deg, rgba(113,169,179,1) 7%, rgba(179,164,164,1) 32%, rgba(113,169,179,1) 53%);
+    border: solid 10px;
+    width: 500px;
+    margin: auto;
+    text-align: center;
+    padding: 15px;
+}
