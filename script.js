@@ -1,4 +1,5 @@
 let form = document.getElementById("player-form");
+let gameGrid = document.getElementById("game");
 let playerOne = new Player();
 let playerTwo = new Player();
 let game = new Game();
@@ -24,6 +25,17 @@ function createGame() {
     let inputList = form.getElementsByTagName("input");
     createPlayers(inputList[0].value, inputList[1].value);
     console.log(playerOne, playerTwo);
+    form.setAttribute("style", "display:none");
+    gameGrid.setAttribute("style", "opacity: 1;");
     form.reset();
 }
 
+function setupGrid() {
+    let gridList = gameGrid.getElementsByTagName("h1");
+    for (let i = 0; i < gridList.length; ++i) {
+        gridList[i].dataset.boxNumber = i + 1;
+        gridList[i].innerHTML = i + 1;
+    }
+}
+
+setupGrid();

@@ -13,22 +13,70 @@
         <h2>
             Are you ready for the challenge?
         </h2>
+        <form id="player-form" onsubmit="createGame();return false;">
+            <label for="player-1-name" id="player" class="player">
+                Player 1:
+            </label>
+            <input style="position: relative; left: 2" class="player-name" type="text" placeholder="Enter name of Player 1">
+            <br>
+            <br>
+            <label for="player-2-name" id="player" class="player">
+                Player 2:
+            </label>
+            <input class="player-name" type="text" placeholder="Enter name of Player 2">
+            <br>
+            <br>
+            <input type="submit" id="submit-btn" value="LET'S PLAY!"/>
+        </form>
     </header>
-    <form id="player-form" onsubmit="createGame();return false;">
-        <label for="player-1-name" id="player" class="player">
-            Player 1:
-        </label>
-        <input class="player-name" type="text" placeholder="Enter name of Player 1">
-        <br>
-        <br>
-        <label for="player-2-name" id="player" class="player">
-            Player 2:
-        </label>
-        <input class="player-name" type="text" placeholder="Enter name of Player 2">
-        <br>
-        <br>
-        <input type="submit" id="submit-btn" value="Let's Play!"/>
-    </form>
+    <section id="game">
+        <div class="grid-box" id="box-1">
+            <h1 class="grid-text">
+
+            </h1>      
+        </div>
+        <div class="grid-box" id="box-2">
+            <h1 class="grid-text">
+                
+            </h1>
+        </div>
+        <div class="grid-box" id="box-3">
+            <h1 class="grid-text">
+                
+            </h1>
+        </div>
+        <div class="grid-box" id="box-4">
+            <h1 class="grid-text">
+                
+            </h1>
+        </div>
+        <div class="grid-box" id="box-5">
+            <h1 class="grid-text">
+                
+            </h1>
+        </div>
+        <div class="grid-box" id="box-6">
+            <h1 class="grid-text">
+                
+            </h1>
+        </div>
+        <div class="grid-box" id="box-7">
+            <h1 class="grid-text">
+                
+            </h1>
+        </div>
+        <div class="grid-box" id="box-8">
+            <h1 class="grid-text">
+                
+            </h1>
+        </div>
+        <div class="grid-box" id="box-9">
+            <h1 class="grid-text">
+                
+            </h1>
+        </div>
+    </section>
+    
     <script src="script.js"></script>
 </body>
 </html>
