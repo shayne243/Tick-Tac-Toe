@@ -29,12 +29,17 @@ function createPlayers(nameOne, nameTwo) {
 }
 
 function createGame() {
+    if (inputList.length < 2) {
+        alert("Please enter both player names!")
+        return;
+    }
     game.roundNo++;
     createPlayers(inputList[0].value, inputList[1].value);
     console.log(playerOne, playerTwo);
     form.setAttribute("style", "display:none");
     gameGrid.setAttribute("style", "opacity: 1;");
     instruct.setAttribute("style", "display: block");
+    instruct.innerHTML = playerOne.name + " make your move...";
     form.reset();
 }
 
@@ -45,15 +50,17 @@ function setupGrid() {
         gridList[i].addEventListener("click", ()=> {
             if (gridList[i].innerHTML == "_") {
                 gridList[i].innerHTML = player[0];
+                gridArray.push(player[0]);
                 if (player[0] == "X") {
                     player[0] = "O";
-                    player[1] = 2
+                    player[1] = 2;
+                    instruct.innerHTML = playerTwo.name + " make your move...";
                 }
                 else {
                     player[0] = "X";
                     player[1] = 1;
+                    instruct.innerHTML = playerOne.name + " make your move...";
                 }
-                instruct.innerHTML = "Player " + player[1] + " make your move...";
             }
         });
     }
