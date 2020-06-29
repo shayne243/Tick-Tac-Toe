@@ -29,6 +29,7 @@
             <input type="submit" id="submit-btn" value="LET'S PLAY!"/>
         </form>
     </header>
+    <h2 id="round-no"></h2>
     <h2 id="instruct"></h2>
     <section id="game">
         <div class="grid-box" id="box-1">
@@ -76,12 +77,23 @@
                 
             </h1>
         </div>
-    </section>   
+    </section>
     <section id="reset">
-        <button id="reset-btn">
+        <button id="reset-btn" class="round">
+            RESET ROUND!
+        </button>
+        <button id="reset-btn" class="game" onclick="document.location.reload()">
             RESET GAME!
         </button>
-    </section> 
+    </section>
+    <section id="score">
+        <h2 id="player-1">
+
+        </h2>
+        <h2 id="player-2">]
+
+        </h2>
+    </section>
     <script src="script.js"></script>
 </body>
 </html>

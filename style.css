@@ -15,6 +15,11 @@ body {
     border: dashed;
     border-style: dashed;
 }
+#round-no {
+    position: absolute;
+    color: white;
+    top: 0;
+}
 #intro {
     padding-top: 2px;
     margin-bottom: 10px;
@@ -33,13 +38,23 @@ input[type=text] {
     outline-style: auto;
     outline-width: 5px;
 }
-#submit-btn, #reset-btn {
+#submit-btn, #reset-btn{
     font-family: Chelsea Market;
     font-size: 20px;
     transition: all 0.5s ease-in-out;
 }
 #submit-btn:hover, #reset-btn:hover {
     box-shadow: inset 0 0 0 3px #4292d4;
+}
+.round {
+    position: relative;
+    top: 70;
+    left: 555;
+}
+.game {
+    position: relative;
+    top: 70;
+    left: 645;
 }
 
 #game {

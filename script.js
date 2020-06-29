@@ -3,6 +3,8 @@ let gameGrid = document.getElementById("game");
 let gridList = gameGrid.getElementsByTagName("h1");
 let inputList = form.getElementsByTagName("input");
 let instruct = document.getElementById("instruct");
+let roundHeading = document.getElementById("round-no");
+let resetBtn = document.getElementsByClassName("round")[0];
 let player = ["X", 1];
 let gridArray = [];
 let gridWin = [[1,2,3], [4,5,6], [7,8,9],
@@ -29,11 +31,14 @@ function createPlayers(nameOne, nameTwo) {
 
 function createGame() {
     game.roundNo++;
+    roundHeading.innerHTML = "ROUND #" + game.roundNo;
+    resetBtn.innerHTML = "RESET ROUND!"
     createPlayers(inputList[0].value, inputList[1].value);
     form.setAttribute("style", "display:none");
     instruct.setAttribute("style", "display: block");
     instruct.innerHTML = playerOne.name + " make your move...";
     form.reset();
+    setupGrid();
 }
 
 function setupGrid() {
@@ -49,16 +54,15 @@ function setupGrid() {
                 gridArray[i] = player[0];
                 for (let i = 0; i < gridWin.length; ++i) {
                     if (gridArray[(gridWin[i][0] - 1)] == "X" && gridArray[(gridWin[i][1] - 1)] == "X" && gridArray[(gridWin[i][2] - 1)] == "X") {
-                        console.log("here");
                         instruct.innerHTML = playerOne.name + " WINS!";
                         game.playerOneScore++;
-                        resetGrid();
+                        resetBtn.innerHTML = "NEXT ROUND ->"
                         return;
                     }
                     if (gridArray[(gridWin[i][0] - 1)] == "O" && gridArray[(gridWin[i][1] - 1)] == "O" && gridArray[(gridWin[i][2] - 1)] == "O") {
                         instruct.innerHTML = playerTwo.name + " WINS!";
                         game.playerTwoScore++;
-                        resetGrid();
+                        resetBtn.innerHTML = "NEXT ROUND ->"
                         return;
                     }
                 }
@@ -81,9 +85,17 @@ function resetGrid() {
     for (let i = 0; i < gridList.length; ++i) {
         gridList[i].innerHTML = "_";
     }
+    if (instruct.innerHTML.includes("WINS!")) {
+        game.roundNo++;
+    }
+    roundHeading.innerHTML = "ROUND #" + game.roundNo;
+    instruct.innerHTML = playerOne.name + " make your move...";
+    resetBtn.innerHTML = "RESET ROUND!"
     player = ["X", 1];
     gridArray = [];
-    game.roundNo++;
 }
 
-setupGrid();
+resetBtn.addEventListener("click", resetGrid);
+
+
+
