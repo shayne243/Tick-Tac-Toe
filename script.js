@@ -4,6 +4,10 @@ let gridList = gameGrid.getElementsByTagName("h1");
 let inputList = form.getElementsByTagName("input");
 let instruct = document.getElementById("instruct");
 let player = ["X", 1];
+let gridArray = [];
+let gridWin = [[1,2,3], [4,5,6], [7,8,9],
+                [1,4,7], [2,5,8], [3,6,9],
+                [1,5,9], [3,5,7]];
 let playerOne = new Player();
 let playerTwo = new Player();
 let game = new Game();
