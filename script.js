@@ -5,6 +5,7 @@ let inputList = form.getElementsByTagName("input");
 let instruct = document.getElementById("instruct");
 let roundHeading = document.getElementById("round-no");
 let resetBtn = document.getElementsByClassName("round")[0];
+let scoreHeading = document.getElementById("scores");
 let player = ["X", 1];
 let gridArray = [];
 let gridWin = [[1,2,3], [4,5,6], [7,8,9],
@@ -34,6 +35,7 @@ function createGame() {
     roundHeading.innerHTML = "ROUND #" + game.roundNo;
     resetBtn.innerHTML = "RESET ROUND!"
     createPlayers(inputList[0].value, inputList[1].value);
+    scores.innerHTML = playerOne.name + " " + game.playerOneScore + "<br>" + playerTwo.name + " " + game.playerTwoScore;
     form.setAttribute("style", "display:none");
     instruct.setAttribute("style", "display: block");
     instruct.innerHTML = playerOne.name + " make your move...";
@@ -91,6 +93,7 @@ function resetGrid() {
     roundHeading.innerHTML = "ROUND #" + game.roundNo;
     instruct.innerHTML = playerOne.name + " make your move...";
     resetBtn.innerHTML = "RESET ROUND!"
+    scores.innerHTML = playerOne.name + " " + game.playerOneScore + "<br>" + playerTwo.name + " " + game.playerTwoScore;
     player = ["X", 1];
     gridArray = [];
 }

@@ -4,6 +4,11 @@ body {
     font-family: Chelsea Market;
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(2,166,199,1) 100%);
 }
+#score {
+    position: absolute;
+    top: 35;
+    color: white;
+}
 #intro {
     color: white;
     text-align: center;
