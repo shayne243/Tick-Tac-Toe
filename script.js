@@ -20,7 +20,6 @@ function Game() {
 
 function Player() {
     this.name = "";
-    this.score = 0;
 }
 
 function createPlayers(nameOne, nameTwo) {
@@ -44,13 +43,32 @@ function createGame() {
 }
 
 function setupGrid() {
+    for (let i = 0; i < 9; ++i) {
+        gridArray[i] = "";
+    }
     for (let i = 0; i < gridList.length; ++i) {
         gridList[i].dataset.boxNumber = i + 1;
         gridList[i].innerHTML = "_";
         gridList[i].addEventListener("click", ()=> {
             if (gridList[i].innerHTML == "_") {
                 gridList[i].innerHTML = player[0];
-                gridArray.push(player[0]);
+                gridArray[i] = player[0];
+                console.log(gridArray);
+                console.log(gridArray[0] == "X");
+                for (let i = 0; i < gridWin.length; ++i) {
+                    console.log(gridArray[(gridWin[i][0] - 1)], gridArray[(gridWin[i][1] - 1)], gridArray[(gridWin[i][2] - 1)]);
+                    console.log(gridArray[(gridWin[i][0] - 1)] == "X" && gridArray[(gridWin[i][1] - 1)] == "X" && gridArray[(gridWin[i][2] - 1)] == "X");
+                    if (gridArray[(gridWin[i][0] - 1)] == "X" && gridArray[(gridWin[i][1] - 1)] == "X" && gridArray[(gridWin[i][2] - 1)] == "X") {
+                        console.log("here");
+                        instruct.innerHTML = playerOne.name + " WINS!";
+                        game.playerOneScore++;
+                        return;
+                    }
+                    else if (gridArray[(gridWin[i][0] - 1)] == "O" && gridArray[(gridWin[i][1] - 1)] == "O" && gridArray[(gridWin[i][2] - 1)] == "O") {
+                        instruct.innerHTML = playerTwo.name + " WINS!";
+                        game.playerTwoScore++;
+                    }
+                }
                 if (player[0] == "X") {
                     player[0] = "O";
                     player[1] = 2;
