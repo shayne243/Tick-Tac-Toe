@@ -28,15 +28,9 @@ function createPlayers(nameOne, nameTwo) {
 }
 
 function createGame() {
-    if (inputList.length < 2) {
-        alert("Please enter both player names!")
-        return;
-    }
     game.roundNo++;
     createPlayers(inputList[0].value, inputList[1].value);
-    console.log(playerOne, playerTwo);
     form.setAttribute("style", "display:none");
-    gameGrid.setAttribute("style", "opacity: 1;");
     instruct.setAttribute("style", "display: block");
     instruct.innerHTML = playerOne.name + " make your move...";
     form.reset();
@@ -53,20 +47,19 @@ function setupGrid() {
             if (gridList[i].innerHTML == "_") {
                 gridList[i].innerHTML = player[0];
                 gridArray[i] = player[0];
-                console.log(gridArray);
-                console.log(gridArray[0] == "X");
                 for (let i = 0; i < gridWin.length; ++i) {
-                    console.log(gridArray[(gridWin[i][0] - 1)], gridArray[(gridWin[i][1] - 1)], gridArray[(gridWin[i][2] - 1)]);
-                    console.log(gridArray[(gridWin[i][0] - 1)] == "X" && gridArray[(gridWin[i][1] - 1)] == "X" && gridArray[(gridWin[i][2] - 1)] == "X");
                     if (gridArray[(gridWin[i][0] - 1)] == "X" && gridArray[(gridWin[i][1] - 1)] == "X" && gridArray[(gridWin[i][2] - 1)] == "X") {
                         console.log("here");
                         instruct.innerHTML = playerOne.name + " WINS!";
                         game.playerOneScore++;
+                        resetGrid();
                         return;
                     }
-                    else if (gridArray[(gridWin[i][0] - 1)] == "O" && gridArray[(gridWin[i][1] - 1)] == "O" && gridArray[(gridWin[i][2] - 1)] == "O") {
+                    if (gridArray[(gridWin[i][0] - 1)] == "O" && gridArray[(gridWin[i][1] - 1)] == "O" && gridArray[(gridWin[i][2] - 1)] == "O") {
                         instruct.innerHTML = playerTwo.name + " WINS!";
                         game.playerTwoScore++;
+                        resetGrid();
+                        return;
                     }
                 }
                 if (player[0] == "X") {
@@ -82,6 +75,15 @@ function setupGrid() {
             }
         });
     }
+}
+
+function resetGrid() {
+    for (let i = 0; i < gridList.length; ++i) {
+        gridList[i].innerHTML = "_";
+    }
+    player = ["X", 1];
+    gridArray = [];
+    game.roundNo++;
 }
 
 setupGrid();
